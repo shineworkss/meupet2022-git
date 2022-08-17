@@ -24,6 +24,12 @@ public class Endereco {
         return getLogradouro() + ", " + getNumero() + " - " + getBairro();
     }
 
+    public void clear(){
+        setLogradouro("");
+        setNumero("");
+        setBairro("");
+    }
+
     public String getLogradouro() {
         return logradouro.get();
     }

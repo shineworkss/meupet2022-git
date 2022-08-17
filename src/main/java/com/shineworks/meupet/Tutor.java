@@ -25,7 +25,7 @@ public class Tutor {
         setEndereco(endereco);
     }
 
-    public String toString() {
+    public String asString() {
         return nome.get() + " | " +
                 rg.get() + " | " +
                 cpf.get() + " | " +
@@ -33,6 +33,14 @@ public class Tutor {
                 endereco.getLogradouro() + ", " +
                 endereco.getNumero() + " - " +
                 endereco.getBairro();
+    }
+
+    public void clear(){
+        setNome("");
+        setRg("");
+        setCpf("");
+        setTelefone("");
+        endereco.clear();
     }
 
     public String getNome() {

@@ -3,12 +3,12 @@ package com.shineworks.meupet;
 import javafx.beans.property.*;
 
 public class Animal {
-    private IntegerProperty numero;
+    private IntegerProperty fichaNumero;
     private StringProperty nome, especie, sexo, raca, pelagem, idade, peso, medicacao, hora;
-    private BooleanProperty vacinacao, vermifugacao;
+    private BooleanProperty vacinacao, vermifugacao, cadastroDeReserva;
 
     public Animal() {
-        numero = new SimpleIntegerProperty();
+        fichaNumero = new SimpleIntegerProperty();
         nome = new SimpleStringProperty();
         especie = new SimpleStringProperty();
         sexo = new SimpleStringProperty();
@@ -21,18 +21,53 @@ public class Animal {
 
         vacinacao = new SimpleBooleanProperty();
         vermifugacao = new SimpleBooleanProperty();
+        cadastroDeReserva = new SimpleBooleanProperty();
     }
 
-    public int getNumero() {
-        return numero.get();
+    public Animal(Animal animal){
+        this();
+
+        fichaNumero.set(animal.getFichaNumero());
+        nome.set(animal.getNome());
+        especie.set(animal.getEspecie());
+        sexo.set(animal.getSexo());
+        raca.set(animal.getRaca());
+        pelagem.set(animal.getPelagem());
+        idade.set(animal.getIdade());
+        peso.set(animal.getPeso());
+        medicacao.set(animal.getMedicacao());
+        hora.set(animal.getHora());
+
+        vacinacao.set(animal.isVacinacao());
+        vermifugacao.set(animal.isVermifugacao());
+        cadastroDeReserva.set(animal.isCadastroDeReserva());
     }
 
-    public IntegerProperty numeroProperty() {
-        return numero;
+    public void clear() {
+        nome.set("");
+        especie.set("");
+        sexo.set("");
+        raca.set("");
+        pelagem.set("");
+        idade.set("");
+        peso.set("");
+        medicacao.set("");
+        hora.set("");
+
+        vacinacao.set(false);
+        vermifugacao.set(false);
+        cadastroDeReserva.set(false);
+    }
+    public int getFichaNumero() {
+        return fichaNumero.get();
     }
 
-    public void setNumero(int numero) {
-        this.numero.set(numero);
+    public IntegerProperty fichaNumeroProperty() {
+        return fichaNumero;
+    }
+
+    public void setFichaNumero(int fichaNumero) {
+        this.fichaNumero.set(fichaNumero);
     }
 
     public String getNome() {
@@ -165,5 +200,17 @@ public class Animal {
 
     public void setVermifugacao(boolean vermifugacao) {
         this.vermifugacao.set(vermifugacao);
+    }
+
+    public boolean isCadastroDeReserva() {
+        return cadastroDeReserva.get();
+    }
+
+    public BooleanProperty cadastroDeReservaProperty() {
+        return cadastroDeReserva;
+    }
+
+    public void setCadastroDeReserva(boolean cadastroDeReserva) {
+        this.cadastroDeReserva.set(cadastroDeReserva);
     }
 }
